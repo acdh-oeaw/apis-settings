@@ -18,10 +18,10 @@ autocomp_settings = {
         'type': False,
         'url': stb_find.format('geoNames_S_P_A'),
         'fields': {
-            'descr': (gn + 'featureCode','String'),
+            'descr': (gn + 'featureCode', 'String'),
             'name': (gn + 'name','String'),
-            'long': (wgs84_pos + 'long','String'),
-            'lat': (wgs84_pos + 'lat','String')
+            'long': (wgs84_pos + 'long', 'String'),
+            'lat': (wgs84_pos + 'lat', 'String')
         }},
         {'source': 'GeonamesRGN',
         'type': False,

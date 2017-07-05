@@ -17,7 +17,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__,'../'))))
 
 #BASE_URI is used to generate uris for locally created objects
-BASE_URI = 'https://apis.eos.arz.oeaw.ac.at/entity/'
+BASE_URI = 'https://test.at'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'autocomplete_light',
-    #'haystack',
     'gm2m',
     'rest_framework',
-    #'rest_framework_swagger',
     'django_extensions',
     'django_filters',
     'django_tables2',
@@ -58,8 +56,7 @@ INSTALLED_APPS = [
     'django_spaghetti',
     'rest_framework.authtoken',
     'guardian',
-    #'registration',
-    #'sphinxdoc'
+    #'registration', activate this for a registration form
 ]
 
 REST_FRAMEWORK = {
@@ -102,24 +99,11 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'shibboleth.middleware.ShibbolethRemoteUserMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'reversion.middleware.RevisionMiddleware'
 ]
-
-
-# SHIBBOLETH_ATTRIBUTE_MAP = {
-#    "shib-user": (True, "username"),
-#    "shib-given-name": (False, "first_name"),
-#    "shib-sn": (False, "last_name"),
-#    "shib-mail": (False, "email"),
-# }
-
-#LOGIN_URL = 'https://clarin.oeaw.ac.at/Shibboleth.sso/Login'
-#LOGIN_URL = 'https://weblogin.oeaw.ac.at/idp/shibboleth/Login'
-#LOGIN_URL = 'https://clarin.oeaw.ac.at/shibboleth'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
@@ -132,7 +116,6 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                #'django.core.context_processors.request',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -161,9 +144,6 @@ DATABASES = {
     }
 }
 
-# AUTHENTICATION_BACKENDS = (
-#   'shibboleth.backends.ShibbolethRemoteUserBackend',
-# )
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
