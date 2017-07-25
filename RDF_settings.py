@@ -298,5 +298,99 @@ sett_RDF_generic = {
             },
             ],
         }
+    },
+    'Institution': {
+        'data': [
+            {
+                'base_url': 'http://d-nb.info/gnd/',
+                'url_appendix': 'about/rdf',
+                'attributes': [
+                    {
+                        'name': 'name',
+                        'identifiers': (
+                            (('objects', 'name', gndo + 'preferredNameForTheCorporateBody', None),),
+                            (('objects', 'name', gndo + 'variantNameForTheCorporateBody', None),),
+                        )
+                    },
+                    {
+                        'name': 'alternativeName',
+                        'identifiers': (
+                            (('objects', 'alternativeName', gndo + 'variantNameForTheCorporateBody', None),),
+                        )
+                    },
+                    {
+                        'name': 'start',
+                        'identifiers': (
+                            (('objects', 'start', gndo + 'dateOfEstablishment', None),),
+                        )
+                    },
+                    {
+                        'name': 'end',
+                        'identifiers': (
+                            (('objects', 'end', gndo + 'dateOfTermination', None),),
+                        )
+                    },
+                    {
+                        'name': 'placeOfBusiness',
+                        'identifiers': (
+                            (('objects', 'placeOfBusiness', gndo + 'placeOfBusiness', None),),
+                        )
+                    },
+                    {
+                        'name': 'succeeding',
+                        'identifiers': (
+                            (('objects', 'succeeding', gndo + 'succeedingCorporateBody', None),),
+                        )
+                    },
+                    {
+                        'name': 'preceding',
+                        'identifiers': (
+                            (('objects', 'preceding', gndo + 'precedingCorporateBody', None),),
+                        )
+                    }
+                ]
+            }
+        ],
+        'matching': {
+            'attributes': {
+                'name': (
+                    (('name', None),),
+                ),
+                'start_date_written': (
+                    (('start', None),),
+                ),
+                'end_date_written': (
+                    (('end', None),),
+                )
+            },
+            'labels': {
+                'alternative name': (
+                    ('alternativeName', None),
+                )
+            },
+            'linked objects': [
+            {
+                'type': 'Place',
+                'kind': 'located in',
+                'object': (
+                    ('placeOfBusiness', None),
+            )
+            },
+            {
+                'type': 'Institution',
+                'kind': 'preceding',
+                'object': (
+                    ('preceding', None),
+            )
+            },
+            {
+                'type': 'Institution',
+                'kind': 'succeeding',
+                'object': (
+                    ('succeeding', None),
+            )
+            },
+            ]
+        }
     }
 }
