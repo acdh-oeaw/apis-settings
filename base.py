@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'relations',
     'metainfo',
     'highlighter',
-    'django_spaghetti',
     'rest_framework.authtoken',
     'guardian',
     #'registration', activate this for a registration form
