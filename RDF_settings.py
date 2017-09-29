@@ -308,8 +308,8 @@ sett_RDF_generic = {
                     {
                         'name': 'name',
                         'identifiers': (
-                            (('objects', 'name', gndo + 'preferredNameForTheCorporateBody', None),),
-                            (('objects', 'name', gndo + 'variantNameForTheCorporateBody', None),),
+                            (('objects', 'prefName', gndo + 'preferredNameForTheCorporateBody', None),),
+                            (('objects', 'prefName', gndo + 'variantNameForTheCorporateBody', None),),
                         )
                     },
                     {
@@ -354,7 +354,7 @@ sett_RDF_generic = {
         'matching': {
             'attributes': {
                 'name': (
-                    (('name', None),),
+                    (('prefName', None),),
                 ),
                 'start_date_written': (
                     (('start', None),),
