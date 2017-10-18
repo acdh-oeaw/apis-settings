@@ -192,3 +192,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'downloads/')
 
 APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform', 'alternative name',
                    'Künstlername', 'Mädchenname', 'Pseudonym', 'weitere Namensform']
+
+APIS_ENTITIES = {
+    'Place': {'search': ['name'],
+              'list_filters': [('name', {'lookup_expr': ['icontains', 'exact'], 'label': 'Name'})]},
+    'Person': {'search': ['name', 'first_name'],
+               'form_order': ['first_name', 'name'],
+               'table_fields': ['name', 'first_name', 'start_date', 'end_date', 'profession'],
+               'list_filters': [('name', {'method': 'name_label_filter', 'label': 'Name'}),
+                                ('gender', {'label': 'Gender'}),
+                                ('start_date', {'label': 'Date of Birth'})]
+               },
+    'Institution': {'search': ['name']},
+    'Work': {'search': ['name']},
+    'Event': {'search': ['name']},
+}
