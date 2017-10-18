@@ -201,9 +201,14 @@ APIS_ENTITIES = {
     'Person': {'search': ['name', 'first_name'],
                'form_order': ['first_name', 'name'],
                'table_fields': ['name', 'first_name', 'start_date', 'end_date', 'profession'],
-               'list_filters': [('name', {'method': 'name_label_filter', 'label': 'Name'}),
+               'list_filters': [('name_full', {'method': 'name_label_filter', 'label': 'Name complete'}),
+                                ('name', {'lookup_expr': ['icontains', 'exact'], 'label': 'Surname'}),
+                                ('first_name', {'lookup_expr': ['icontains', 'exact'], 'label': 'Firstname'}),
                                 ('gender', {'label': 'Gender'}),
-                                ('start_date', {'label': 'Date of Birth'})]
+                                ('start_date', {'label': 'Date of Birth'}),
+                                ('end_date', {'label': 'Date of Death'}),
+                                ('profession', {'label': 'Profession'}),
+                                ('collection', {'label': 'Collection'})]
                },
     'Institution': {'search': ['name']},
     'Work': {'search': ['name']},
