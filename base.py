@@ -197,19 +197,22 @@ APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternativ
 
 APIS_ENTITIES = {
     'Place': {'search': ['name'],
-              'list_filters': [('name', {'lookup_expr': ['icontains', 'exact'], 'label': 'Name'})]},
+              'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
     'Person': {'search': ['name', 'first_name'],
                'form_order': ['first_name', 'name'],
                'table_fields': ['name', 'first_name', 'start_date', 'end_date', 'profession'],
                'list_filters': [('name', {'method': 'name_label_filter', 'label': 'Name complete'}),
-                                ('first_name', {'lookup_expr': ['icontains', 'exact'], 'label': 'Firstname'}),
+                                ('first_name', {'method': 'wildcard_filter', 'label': 'Firstname'}),
                                 ('gender', {'label': 'Gender'}),
                                 ('start_date', {'label': 'Date of Birth'}),
                                 ('end_date', {'label': 'Date of Death'}),
                                 ('profession', {'label': 'Profession'}),
                                 ('collection', {'label': 'Collection'})]
                },
-    'Institution': {'search': ['name']},
-    'Work': {'search': ['name']},
-    'Event': {'search': ['name']},
+    'Institution': {'search': ['name'],
+                    'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
+    'Work': {'search': ['name'],
+             'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
+    'Event': {'search': ['name'],
+              'list_filters': [('name', {'method': 'wildcard_filter', 'label': 'Name'})]},
 }
