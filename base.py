@@ -185,8 +185,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'downloads/')
 
 # APIS settings
 
-APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform', 'alternative name',
-                   'Künstlername', 'Mädchenname', 'Pseudonym', 'weitere Namensform']
+APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform',
+                        'alternative name', 'Künstlername', 'Mädchenname', 'Pseudonym',
+                        'weitere Namensform'
+                        ]
 
 APIS_ENTITIES = {
     'Place': {'search': ['name'],
