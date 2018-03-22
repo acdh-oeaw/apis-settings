@@ -54,8 +54,9 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
-    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
-    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'PAGE_SIZE': 50,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'entities.custom_authentication.TokenAuthSupportQueryString'
@@ -182,13 +183,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_dir/')
 MEDIA_URL = '/downloads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'downloads/')
 
-
+APIS_COMPONENTS = []
 # APIS settings
 
-APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform',
-                        'alternative name', 'Künstlername', 'Mädchenname', 'Pseudonym',
-                        'weitere Namensform'
-                        ]
+APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform', 'alternative name',
+                   'Künstlername', 'Mädchenname', 'Pseudonym', 'weitere Namensform']
 
 APIS_ENTITIES = {
     'Place': {'search': ['name'],
