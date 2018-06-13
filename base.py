@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'vocabularies',
     'relations',
     'metainfo',
-    'highlighter',
+    #'apis_highlighter',
     'rest_framework.authtoken',
     'guardian',
     #'registration', activate this for a registration form
@@ -59,6 +59,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'entities.custom_authentication.TokenAuthSupportQueryString'
     ),
     'DEFAULT_RENDERER_CLASSES': (
@@ -113,7 +114,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'apis.context_processors.custom_context_processors.add_entities'
+                'apis.context_processors.custom_context_processors.add_entities',
+                'apis.context_processors.custom_context_processors.add_apis_settings',
             ],
         },
     },
@@ -182,7 +184,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_dir/')
 MEDIA_URL = '/downloads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'downloads/')
 
-APIS_COMPONENTS = []
+APIS_COMPONENTS = ['deep learning', 'annotator agreement']
 # APIS settings
 
 APIS_ALTERNATE_NAMES = ['Taufname', 'Ehename', 'Name laut ÖBL XML', 'alternative Namensform', 'alternative name',
