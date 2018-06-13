@@ -7,7 +7,15 @@ URL_geonames = stb_base + "geoNames_%s/query"
 wgs84_pos = "http://www.w3.org/2003/01/geo/wgs84_pos#"
 gnd_geo = "http://www.opengis.net/ont/geosparql#"
 stb_find = stb_base + u'{}/find'
+GenderMappingGND = {'male': 'http://d-nb.info/standards/vocab/gnd/Gender#male',
+                    'männlich': 'http://d-nb.info/standards/vocab/gnd/Gender#male',
+                    'Mann': 'http://d-nb.info/standards/vocab/gnd/Gender#male',
+                    'female': 'http://d-nb.info/standards/vocab/gnd/Gender#female',
+                    'weiblich': 'http://d-nb.info/standards/vocab/gnd/Gender#female',
+                    'Frau': 'http://d-nb.info/standards/vocab/gnd/Gender#female'}
 
+def date_conversion(date):
+    return "{}T00:00:00.000Z".format(date)
 
 autocomp_settings = {
     'score': u'http://stanbol.apache.org/ontology/entityhub/query#score',
@@ -69,6 +77,20 @@ autocomp_settings = {
         'source': 'GND',
         'type': u'http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson',
         'url': stb_find.format('gndPersons'),
+        'search fields': {'gender': ('http://d-nb.info/standards/elementset/gnd#gender',
+                                     GenderMappingGND, 'reference'),
+                          'start_date': ('http://d-nb.info/standards/elementset/gnd#dateOfBirth',
+                                         date_conversion, 'date_exact'),
+                          'end_date': ('http://d-nb.info/standards/elementset/gnd#dateOfDeath',
+                                         date_conversion, 'date_exact'),
+                          'start_date__gt': ('http://d-nb.info/standards/elementset/gnd#dateOfBirth',
+                                         date_conversion, 'date_gt'),
+                          'start_date__lt': ('http://d-nb.info/standards/elementset/gnd#dateOfBirth',
+                                         date_conversion, 'date_lt'),
+                          'end_date__gt': ('http://d-nb.info/standards/elementset/gnd#dateOfBirth',
+                                         date_conversion, 'date_gt'),
+                          'end_date__lt': ('http://d-nb.info/standards/elementset/gnd#dateOfDeath',
+                                         date_conversion, 'date_lt')},
         'fields': {
             'descr': (u'http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation','String'),
             'name': (u'http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson','String'),
