@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 gn = "http://www.geonames.org/ontology#"
-stb_base = 'http://enrich.acdh.oeaw.ac.at/entityhub/site/'
+stb_base = 'https://enrich.acdh.oeaw.ac.at/entityhub/site/'
 URL_geonames = stb_base + "geoNames_%s/query"
 wgs84_pos = "http://www.w3.org/2003/01/geo/wgs84_pos#"
 gnd_geo = "http://www.opengis.net/ont/geosparql#"
